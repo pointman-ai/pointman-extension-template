@@ -1,5 +1,5 @@
-# A Pointman node extension. Rename `hello` (the id, the folder, and every command, tool and event
-# name that starts with it), then check it: python -m messageboard.extensions.manifest check extension.toml
+# The template's `hello` extension as a Rust binary. Rename `hello` (the id, and every command, tool
+# and event name that starts with it) to start your own.
 [extension]
 id = "hello"
 name = "Hello"
@@ -10,8 +10,8 @@ node = ">=0.1,<1"
 platforms = ["macos-arm64", "macos-x86_64", "linux-x86_64", "linux-arm64"]
 
 [run]
-command = ["python", "-m", "hello"]
-runtime = "python3.12"
+command = ["bin/hello"]      # the release build, in the package's bin/
+runtime = "binary"
 
 [permissions]
 secrets = []                 # vault names it may open, or prefixes like "hello.*"
