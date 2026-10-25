@@ -29,3 +29,10 @@ fn a_missing_name_fails() {
     let failed = node.run("hello.greet", json!({})).unwrap_err();
     assert_eq!(failed.message, "name is missing");
 }
+
+#[test]
+fn a_param_it_doesnt_take_fails() {
+    let node = hello().start().unwrap();
+    let failed = node.run("hello.greet", json!({"name": "Ada", "nmae": "Ada"})).unwrap_err();
+    assert_eq!(failed.message, "nmae isn't a field: it takes name");
+}
