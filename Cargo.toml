@@ -6,7 +6,7 @@ license = "MIT"
 publish = false
 
 [dependencies]
-pointman-extension = { git = "https://github.com/pointman-ai/pointman-extension", rev = "3178e2099e417d0b2f29a8970416d5de50926c4e" }
+pointman-extension = { git = "https://github.com/pointman-ai/pointman-extension", tag = "v0.4.0" }
 anyhow = "1"
 serde_json = "1"
 # buffa's code for proto/hello/v1/hello.proto (build.rs) uses these: keep them at the SDK's versions
@@ -14,7 +14,7 @@ buffa = { version = "0.9.2", features = ["json"] }
 serde = "1"
 
 [build-dependencies]
-pointman-extension = { git = "https://github.com/pointman-ai/pointman-extension", rev = "3178e2099e417d0b2f29a8970416d5de50926c4e", features = ["proto"] }
+pointman-extension = { git = "https://github.com/pointman-ai/pointman-extension", tag = "v0.4.0", features = ["proto"] }
 
 [dev-dependencies]
-pointman-extension = { git = "https://github.com/pointman-ai/pointman-extension", rev = "3178e2099e417d0b2f29a8970416d5de50926c4e", features = ["proto"] }
+pointman-extension = { git = "https://github.com/pointman-ai/pointman-extension", tag = "v0.4.0", features = ["proto"] }
