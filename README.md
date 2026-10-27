@@ -8,6 +8,12 @@ It's MIT, as every extension repo is by default.
 
 - **The SDK:** [pointman-extension](https://github.com/pointman-ai/pointman-extension) speaks the
   node's protocol over stdin and stdout, so `src/main.rs` only declares commands and answers them.
+  This is SDK 0.5, which needs a node from 0.4.0 on (extension.toml's `node`).
+- **References are `{id, name}`:** a thread, post, member, machine or task in the protocol is its kind's
+  `XRef` from `pointman_extension::v1` (`ThreadRef`, `MemberRef`, `MachineRef`, `TaskRef`, …): `id` is core's
+  (`thread_12`), and `name` the one people read, for kinds that have one (a handle, a hostname, `MB-12`). So a
+  board post goes to `ThreadRef { id: "thread_12".into(), .. }`, and pane.control's person is `by.name`. The
+  SDK's README has a table for moving an extension from 0.4.
 - **Its own proto:** `proto/hello/v1/hello.proto` holds the command's params and result (`GreetParams`,
   `GreetResult`: `hello.<verb>` takes `<Verb>Params`) and the settings (`Settings`), with each field's doc and
   limits. `pointman-extension manifest write` makes extension.toml's `params` and `[settings]` from it, keeping the
